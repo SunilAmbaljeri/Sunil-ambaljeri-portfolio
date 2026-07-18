@@ -1462,8 +1462,8 @@ function Portfolio() {
 }
 const onDownload = () => {
   const link = document.createElement("a");
-  link.href = `${import.meta.env.BASE_URL}Sunil_Ambaljeri_Resume.pdf`;
-  link.download = "Sunil_Ambaljeri_Resume.pdf";
+  link.href = `${import.meta.env.BASE_URL}Sunil Ambaljeri Resume.pdf`;
+  link.download = "Sunil Ambaljeri Resume.pdf";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
