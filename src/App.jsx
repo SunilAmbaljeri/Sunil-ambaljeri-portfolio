@@ -654,8 +654,7 @@ function VisitorModal() {
             </div>
             <h3 className="modal-title">Welcome to my portfolio!</h3>
             <p className="modal-desc">
-              I'd love to know who's visiting. Share your email and I'll keep
-              you updated on any new opportunities or projects.
+              I'd love to know who's visiting. Please share your email.
             </p>
             <form
               onSubmit={handleSubmit}
