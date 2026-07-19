@@ -22,7 +22,7 @@ import {
   FiArrowUp,
   FiGithub,
 } from "react-icons/fi";
-import resumeData from "./resumeData.json";
+import {MASTER_DATA} from "./util";
 
 function Accordion({
   title,
@@ -272,18 +272,18 @@ function HeroSection() {
       <div className="hero-inner">
         <div className="hero-info">
           <span className="hero-label">Hello, I'm</span>
-          <h1 className="hero-name">{resumeData.name}</h1>
-          <p className="hero-title">{resumeData.title}</p>
-          <p className="hero-summary">{resumeData.summary.split("\n\n")[0]}</p>
+          <h1 className="hero-name">{MASTER_DATA.name}</h1>
+          <p className="hero-title">{MASTER_DATA.title}</p>
+          <p className="hero-summary">{MASTER_DATA.summary.split("\n\n")[0]}</p>
           <div className="hero-contact-row">
             <a
-              href={"mailto:" + resumeData.email}
+              href={"mailto:" + MASTER_DATA.email}
               className="hero-contact-link"
             >
-              <FiBriefcase /> {resumeData.email}
+              <FiBriefcase /> {MASTER_DATA.email}
             </a>
             <a
-              href={resumeData.linkedin}
+              href={MASTER_DATA.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-contact-link"
@@ -336,7 +336,7 @@ function StatCard({ value, label }) {
 function AboutSection() {
   return (
     <div className="about-grid">
-      {resumeData.summary
+      {MASTER_DATA.summary
         .split("\n\n")
         .filter((p) => p.trim())
         .map((p, i) => {
@@ -367,7 +367,7 @@ function AboutSection() {
 }
 
 function CompetenciesSection() {
-  const { coreCompetencies } = resumeData;
+  const { coreCompetencies } = MASTER_DATA;
   return (
     <div className="competencies-grid">
       <CompetencyCard
@@ -434,7 +434,7 @@ function CompetencyCard({ title, icon, items, color }) {
 function ExperienceSection() {
   return (
     <div className="experience-list">
-      {resumeData.experience.map((company, ci) => (
+      {MASTER_DATA.experience.map((company, ci) => (
         <div
           key={ci}
           className="company-section"
@@ -664,7 +664,7 @@ function ProjectCard({ name, description }) {
 function ProductsSection() {
   return (
     <div className="products-delivered-grid">
-      {Object.entries(resumeData.majorProductsDelivered).map(
+      {Object.entries(MASTER_DATA.majorProductsDelivered).map(
         ([company, items], i) => (
           <div
             key={i}
@@ -689,7 +689,7 @@ function ProductsSection() {
 }
 
 function SkillsSection() {
-  const { technicalSkills } = resumeData;
+  const { technicalSkills } = MASTER_DATA;
   return (
     <div className="skills-grid">
       {Object.entries(technicalSkills).map(([key, value], i) => (
@@ -717,7 +717,7 @@ function SkillsSection() {
 function AwardsSection() {
   return (
     <div className="awards-grid-portfolio">
-      {resumeData.awards.map((award, i) => (
+      {MASTER_DATA.awards.map((award, i) => (
         <div
           key={i}
           className="award-card"
@@ -741,7 +741,7 @@ function AwardsSection() {
 function HighlightsSection() {
   return (
     <div className="highlights-portfolio">
-      {resumeData.careerHighlights.map((item, i) => {
+      {MASTER_DATA.careerHighlights.map((item, i) => {
         const parts = item.split(/(\*\*[^*]+\*\*)/g);
         return (
           <div
@@ -769,14 +769,14 @@ function HighlightsSection() {
 function ProgressionSection() {
   return (
     <div className="timeline">
-      {resumeData.careerProgression.map((step, i) => (
+      {MASTER_DATA.careerProgression.map((step, i) => (
         <div
           key={i}
           className="timeline-item"
         >
           <div className="timeline-marker">
             <div className="timeline-dot"></div>
-            {i < resumeData.careerProgression.length - 1 && (
+            {i < MASTER_DATA.careerProgression.length - 1 && (
               <div className="timeline-line"></div>
             )}
           </div>
@@ -798,12 +798,12 @@ function EducationSection() {
         <FiBookOpen />
       </div>
       <div className="edu-details-portfolio">
-        <h4>{resumeData.education.degree}</h4>
-        <p className="edu-inst">{resumeData.education.institution}</p>
+        <h4>{MASTER_DATA.education.degree}</h4>
+        <p className="edu-inst">{MASTER_DATA.education.institution}</p>
         <div className="edu-meta">
-          <span>Graduated: {resumeData.education.year}</span>
+          <span>Graduated: {MASTER_DATA.education.year}</span>
           <span className="edu-cgpa">
-            CGPA: <strong>{resumeData.education.cgpa}</strong>
+            CGPA: <strong>{MASTER_DATA.education.cgpa}</strong>
           </span>
         </div>
       </div>
@@ -814,7 +814,7 @@ function EducationSection() {
 function StrengthsSection() {
   return (
     <div className="strengths-grid">
-      {resumeData.professionalStrengths.map((s, i) => (
+      {MASTER_DATA.professionalStrengths.map((s, i) => (
         <div
           key={i}
           className="strength-card"
@@ -830,7 +830,7 @@ function StrengthsSection() {
 function LanguagesSection() {
   return (
     <div className="languages-row">
-      {resumeData.languages.map((lang, i) => (
+      {MASTER_DATA.languages.map((lang, i) => (
         <div
           key={i}
           className="language-card"
@@ -999,7 +999,7 @@ function App() {
       <VisitorModal />
       <nav className="navbar">
         <div className="nav-inner">
-          <span className="nav-brand">{resumeData.name}</span>
+          <span className="nav-brand">{MASTER_DATA.name}</span>
           <div className="nav-links">
             <a href="#summary">About</a>
             <a href="#competencies">Skills</a>
@@ -1020,13 +1020,13 @@ function App() {
       <footer className="footer">
         <div className="footer-inner">
           <div className="footer-left">
-            <span className="footer-brand">{resumeData.name}</span>
+            <span className="footer-brand">{MASTER_DATA.name}</span>
             <span className="footer-sep">|</span>
             <span>Product Owner & Technical Leader</span>
           </div>
           <div className="footer-right">
             <a
-              href={resumeData.linkedin}
+              href={MASTER_DATA.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="footer-link"
@@ -1034,7 +1034,7 @@ function App() {
               <FiLinkedin /> LinkedIn
             </a>
             <a
-              href={"mailto:" + resumeData.email}
+              href={"mailto:" + MASTER_DATA.email}
               className="footer-link"
             >
               <FiMail /> Email

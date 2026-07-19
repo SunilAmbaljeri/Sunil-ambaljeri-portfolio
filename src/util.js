@@ -1,4 +1,4 @@
-export const resumeData = {
+export const MASTER_DATA = {
     name: "Sunil Ambaljeri",
     title:
         "Deputy Manager | Product Owner | Technical Lead | Full Stack Developer",
